@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
+using SoundCloud.Api.Entities;
 using SoundCloud.Api.Utils;
 
 namespace SoundCloud.Api.Web
@@ -18,6 +20,10 @@ namespace SoundCloud.Api.Web
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
+            if (!string.IsNullOrEmpty(_credentials.AccessToken))
+            {
+                request.Headers.Authorization = new AuthenticationHeaderValue("OAuth", _credentials.AccessToken);
+            }
             request.RequestUri = AppendCredentials(request.RequestUri, _credentials);
             return await base.SendAsync(request, cancellationToken);
         }
@@ -30,7 +36,7 @@ namespace SoundCloud.Api.Web
             }
 
 
-            if (uri.Query.Contains("oauth_token") || uri.Query.Contains("client_id"))
+            if (uri.Query.Contains("client_id"))
             {
                 return uri;
             }
@@ -46,11 +52,6 @@ namespace SoundCloud.Api.Web
             }
 
             var uriString = uri.ToString();
-            if (!string.IsNullOrEmpty(credentials.AccessToken))
-            {
-                uriString += delimiter + "oauth_token=" + credentials.AccessToken;
-                return new Uri(uriString);
-            }
 
             if (!string.IsNullOrEmpty(credentials.ClientId))
             {

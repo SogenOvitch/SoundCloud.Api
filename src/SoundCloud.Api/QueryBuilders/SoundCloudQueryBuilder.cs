@@ -7,7 +7,7 @@ namespace SoundCloud.Api.QueryBuilders
     public abstract class SoundCloudQueryBuilder
     {
         private const string Host = "https://api.soundcloud.com/";
-        public const int MaxLimit = 200;
+        public const int MaxLimit = 20;
         private const int MinLimit = 1;
         private int _customMaxLimit;
         private int _limit;
@@ -18,6 +18,7 @@ namespace SoundCloud.Api.QueryBuilders
             Limit = MaxLimit;
             Paged = false;
             Path = "?";
+            ShowTracks = false;
         }
 
         protected int CustomMaxLimit
@@ -69,12 +70,16 @@ namespace SoundCloud.Api.QueryBuilders
 
         internal string Path { get; set; }
 
+        internal bool ShowTracks { get; set; }
+
         protected virtual void AddArguments(IDictionary<string, string> queryArguments)
         {
             if (Paged)
             {
                 ApplyPrimitiveType(queryArguments, "limit", Limit);
             }
+
+            ApplyPrimitiveType(queryArguments, "show_tracks", ShowTracks);
         }
 
         protected static void ApplyList<T>(IDictionary<string, string> query, string key, IList<T> filters)
@@ -156,6 +161,11 @@ namespace SoundCloud.Api.QueryBuilders
         }
 
         private static void ApplyPrimitiveType(IDictionary<string, string> query, string key, int filter)
+        {
+            AddEscapedValue(query, key, filter.ToString());
+        }
+
+        private static void ApplyPrimitiveType(IDictionary<string, string> query, string key, bool filter)
         {
             AddEscapedValue(query, key, filter.ToString());
         }
