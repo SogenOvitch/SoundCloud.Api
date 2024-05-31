@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
@@ -46,6 +47,10 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonProperty("expires_in")]
         public int? ExpiresIn { get; set; }
+
+        public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
+        public DateTime ExpiresAt => CreatedAt.AddSeconds(ExpiresIn ?? 0);
+        public bool IsExpired => ExpiresAt <= DateTime.UtcNow;
 
         /// <summary>
         ///     Available for POST requests
