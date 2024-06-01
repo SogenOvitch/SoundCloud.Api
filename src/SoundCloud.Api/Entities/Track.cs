@@ -51,7 +51,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("comment_count")]
-        public int CommentCount { get; set; }
+        public int? CommentCount { get; set; }
 
         /// <summary>
         ///     Available for GET, PUT, POST requests
