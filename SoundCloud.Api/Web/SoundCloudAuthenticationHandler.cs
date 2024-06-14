@@ -28,7 +28,7 @@ namespace SoundCloud.Api.Web
             return await base.SendAsync(request, cancellationToken);
         }
 
-        private static Uri AppendCredentials(Uri uri, SoundCloudAuthInfo credentials)
+        private static Uri? AppendCredentials(Uri? uri, SoundCloudAuthInfo credentials)
         {
             if (uri == null)
             {

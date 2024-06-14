@@ -15,20 +15,20 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("resource_uri")]
-        public string ResourceUri { get; set; }
+        public string? ResourceUri { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("token")]
-        public string Token { get; set; }
+        public string? Token { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         /// </summary>
         [JsonProperty("uri")]
         [JsonIgnoreOnSerialize]
-        public Uri Uri { get; set; }
+        public Uri? Uri { get; set; }
     }
 }

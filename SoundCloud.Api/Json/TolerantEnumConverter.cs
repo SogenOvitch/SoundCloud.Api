@@ -12,13 +12,18 @@ namespace SoundCloud.Api.Json
         public override bool CanConvert(Type objectType)
         {
             var type = IsNullableType(objectType) ? Nullable.GetUnderlyingType(objectType) : objectType;
-            return type.IsEnum;
+            return type?.IsEnum ?? false;
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
             var isNullable = IsNullableType(objectType);
             var enumType = isNullable ? Nullable.GetUnderlyingType(objectType) : objectType;
+
+            if (enumType == null)
+            {
+                return null;
+            }
 
             var enumValues = Enum.GetValues(enumType).Cast<Enum>();
             var enumNames = new Dictionary<string, Enum>();
@@ -32,16 +37,16 @@ namespace SoundCloud.Api.Json
                     continue;
                 }
 
-                enumNames.Add(attr.Value, enumVal);
+                enumNames.Add(attr.Value ?? string.Empty, enumVal);
             }
 
             if (reader.TokenType == JsonToken.String)
             {
-                var enumText = reader.Value.ToString();
+                var enumText = reader.Value?.ToString();
 
                 if (!string.IsNullOrEmpty(enumText))
                 {
-                    Enum enumVal;
+                    Enum? enumVal;
                     if (enumNames.TryGetValue(enumText, out enumVal))
                     {
                         return enumVal;
@@ -69,7 +74,7 @@ namespace SoundCloud.Api.Json
             return null;
         }
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
             var val = value as Enum;
 

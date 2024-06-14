@@ -46,7 +46,7 @@ namespace SoundCloud.Api
         public IUsers Users { get; }
 
 
-        public static ISoundCloudClient CreateAuthorized(string accessToken)
+        public static ISoundCloudClient? CreateAuthorized(string? accessToken)
         {
             if (string.IsNullOrEmpty(accessToken))
             {
@@ -56,7 +56,7 @@ namespace SoundCloud.Api
             return GetClient(new SoundCloudAuthInfo(accessToken, null));
         }
 
-        public static ISoundCloudClient CreateUnauthorized(string clientId)
+        public static ISoundCloudClient? CreateUnauthorized(string? clientId)
         {
             if (string.IsNullOrEmpty(clientId))
             {
@@ -66,7 +66,7 @@ namespace SoundCloud.Api
             return GetClient(new SoundCloudAuthInfo(null, clientId));
         }
 
-        private static SoundCloudClient GetClient(SoundCloudAuthInfo credentials)
+        private static SoundCloudClient? GetClient(SoundCloudAuthInfo credentials)
         {
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddSoundCloudClient(credentials);

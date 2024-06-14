@@ -15,9 +15,9 @@ namespace SoundCloud.Api.Json
             return typeof(Entity).IsAssignableFrom(objectType);
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
-            var jsonObject = (JObject) serializer.Deserialize(reader);
+            var jsonObject = serializer.Deserialize(reader) as JObject;
 
             if (jsonObject == null)
             {
@@ -31,7 +31,7 @@ namespace SoundCloud.Api.Json
                 return jsonObject.ToObject(objectType);
             }
 
-            var kind = EnumHelper.ParseTolerant<Kind>(kindToken.Value<string>());
+            var kind = EnumHelper.ParseTolerant<Kind>(kindToken.Value<string>() ?? string.Empty);
 
             switch (kind)
             {
@@ -59,7 +59,7 @@ namespace SoundCloud.Api.Json
             }
         }
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
             serializer.Serialize(writer, value);
         }

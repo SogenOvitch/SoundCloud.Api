@@ -17,7 +17,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("created_at")]
-        public string CreatedAt { get; set; }
+        public string? CreatedAt { get; set; }
 
         /// <summary>
         ///     Available for GET, POST requests
@@ -40,20 +40,20 @@ namespace SoundCloud.Api.Entities
         ///     Available for GET, POST requests
         /// </summary>
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         /// <summary>
         ///     Available for GET, POST requests
         /// </summary>
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public string? Url { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("username")]
-        public string Username { get; set; }
+        public string? Username { get; set; }
 
         public void ValidateDelete()
         {

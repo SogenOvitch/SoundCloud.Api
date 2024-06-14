@@ -35,9 +35,9 @@ namespace SoundCloud.Api.Login
             var arguments = new Dictionary<string, string>();
 
             arguments.Add("client_id", ClientId);
-            arguments.Add("response_type", ResponseType.GetAttributeOfType<EnumMemberAttribute>().Value);
-            arguments.Add("display", Display.GetAttributeOfType<EnumMemberAttribute>().Value);
-            arguments.Add("scope", Scope.GetAttributeOfType<EnumMemberAttribute>().Value);
+            arguments.Add("response_type", ResponseType.GetAttributeOfType<EnumMemberAttribute>().Value ?? string.Empty);
+            arguments.Add("display", Display.GetAttributeOfType<EnumMemberAttribute>().Value ?? string.Empty);
+            arguments.Add("scope", Scope.GetAttributeOfType<EnumMemberAttribute>().Value ?? string.Empty);
             arguments.Add("redirect_uri", RedirectUri);
 
             var uri = new UriBuilder(Uri);

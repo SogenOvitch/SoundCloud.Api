@@ -9,7 +9,7 @@ namespace SoundCloud.Api
 {
     public static class SoundCloudOAuth
     {
-        private static readonly string Version = typeof(SoundCloudClient).Assembly.GetName().Version.ToString();
+        private static readonly string Version = typeof(SoundCloudClient).Assembly.GetName().Version?.ToString() ?? string.Empty;
 
         public static async Task<Credentials> FromClientCredentials(string clientId, string clientSecret)
         {
@@ -32,7 +32,14 @@ namespace SoundCloud.Api
                 }
 
                 var responseContent = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<Credentials>(responseContent);
+                var credentials = JsonConvert.DeserializeObject<Credentials>(responseContent);
+
+                if (credentials == null)
+                {
+                    throw new Exception();
+                }
+
+                return credentials;
             }
         }
 
@@ -59,7 +66,14 @@ namespace SoundCloud.Api
                 }
 
                 var responseContent = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<Credentials>(responseContent);
+                var credentials = JsonConvert.DeserializeObject<Credentials>(responseContent);
+
+                if (credentials == null)
+                {
+                    throw new Exception();
+                }
+
+                return credentials;
             }
         }
 
@@ -85,7 +99,14 @@ namespace SoundCloud.Api
                 }
 
                 var responseContent = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<Credentials>(responseContent);
+                var credentials = JsonConvert.DeserializeObject<Credentials>(responseContent);
+
+                if (credentials == null)
+                {
+                    throw new Exception();
+                }
+
+                return credentials;
             }
         }
 

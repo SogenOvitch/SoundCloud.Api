@@ -9,6 +9,6 @@ namespace SoundCloud.Api.Entities
 
         bool HasNextPage { get; }
 
-        Uri NextHref { get; }
+        Uri? NextHref { get; }
     }
 }

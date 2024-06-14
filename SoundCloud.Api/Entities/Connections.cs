@@ -16,14 +16,14 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("created_at")]
-        public string CreatedAt { get; set; }
+        public string? CreatedAt { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("display_name")]
-        public string DisplayName { get; set; }
+        public string? DisplayName { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -58,6 +58,6 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonProperty("uri")]
         [JsonIgnoreOnSerialize]
-        public Uri Uri { get; set; }
+        public Uri? Uri { get; set; }
     }
 }

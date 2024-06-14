@@ -13,6 +13,6 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("error_message")]
-        public string Message { get; set; }
+        public string? Message { get; set; }
     }
 }

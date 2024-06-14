@@ -31,7 +31,7 @@ namespace SoundCloud.Api.QueryBuilders
                 "representation",
                 Representation,
                 RepresentationMode.None,
-                s => s.GetAttributeOfType<EnumMemberAttribute>().Value);
+                s => s.GetAttributeOfType<EnumMemberAttribute>().Value ?? string.Empty);
         }
     }
 }

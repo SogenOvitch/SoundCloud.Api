@@ -28,14 +28,14 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("artwork_url")]
-        public Uri ArtworkUrl { get; set; }
+        public Uri? ArtworkUrl { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("attachments_uri")]
-        public Uri AttachmentsUri { get; set; }
+        public Uri? AttachmentsUri { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -76,14 +76,14 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("created_with")]
-        public AppClient CreatedWith { get; set; }
+        public AppClient? CreatedWith { get; set; }
 
         /// <summary>
         ///     Available for GET, PUT, POST requests
         ///     HTML description
         /// </summary>
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -98,7 +98,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("disabled_reason")]
-        public string DisabledReason { get; set; }
+        public string? DisabledReason { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -113,7 +113,7 @@ namespace SoundCloud.Api.Entities
         ///     URL to original file
         /// </summary>
         [JsonProperty("download_url")]
-        public Uri DownloadUrl { get; set; }
+        public Uri? DownloadUrl { get; set; }
 
         /// <summary>
         ///     Available for GET, PUT, POST requests
@@ -166,7 +166,7 @@ namespace SoundCloud.Api.Entities
         ///     genre
         /// </summary>
         [JsonProperty("genre")]
-        public string Genre { get; set; }
+        public string? Genre { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -188,7 +188,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("isrc")]
-        public string Isrc { get; set; }
+        public string? Isrc { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -196,7 +196,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("key_signature")]
-        public string KeySignature { get; set; }
+        public string? KeySignature { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -204,7 +204,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("label")]
-        public User Label { get; set; }
+        public User? Label { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -219,7 +219,7 @@ namespace SoundCloud.Api.Entities
         ///     label name
         /// </summary>
         [JsonProperty("label_name")]
-        public string LabelName { get; set; }
+        public string? LabelName { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -251,7 +251,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("monetization_model")]
-        public string MonetizationModel { get; set; }
+        public string? MonetizationModel { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -267,7 +267,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("original_format")]
-        public string OriginalFormat { get; set; }
+        public string? OriginalFormat { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -275,7 +275,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("permalink")]
-        public string Permalink { get; set; }
+        public string? Permalink { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -283,7 +283,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("permalink_url")]
-        public Uri PermalinkUrl { get; set; }
+        public Uri? PermalinkUrl { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -298,21 +298,21 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("policy")]
-        public string Policy { get; set; }
+        public string? Policy { get; set; }
 
         /// <summary>
         ///     Available for GET, PUT, POST requests
         ///     external purchase link
         /// </summary>
         [JsonProperty("purchase_title")]
-        public string PurchaseTitle { get; set; }
+        public string? PurchaseTitle { get; set; }
 
         /// <summary>
         ///     Available for GET, PUT, POST requests
         ///     external purchase link
         /// </summary>
         [JsonProperty("purchase_url")]
-        public Uri PurchaseUrl { get; set; }
+        public Uri? PurchaseUrl { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -320,7 +320,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("release")]
-        public string Release { get; set; }
+        public string? Release { get; set; }
 
         /// <summary>
         ///     Available for GET, PUT, POST requests
@@ -387,7 +387,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("stream_url")]
-        public Uri StreamUrl { get; set; }
+        public Uri? StreamUrl { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -403,14 +403,14 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonProperty("tag_list")]
         [JsonConverter(typeof(StringToListJsonConverter), ' ', '"')]
-        public List<string> TagList { get; set; }
+        public List<string>? TagList { get; set; }
 
         /// <summary>
         ///     Available for GET, PUT, POST requests
         ///     track title
         /// </summary>
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         /// <summary>
         ///     Available for GET, PUT, POST requests
@@ -426,14 +426,14 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonProperty("uri")]
         [JsonIgnoreOnSerialize]
-        public Uri Uri { get; set; }
+        public Uri? Uri { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         /// </summary>
         [JsonProperty("urn")]
         [JsonIgnoreOnSerialize]
-        public string Urn { get; set; }
+        public string? Urn { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -441,7 +441,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonProperty("user")]
         [JsonIgnoreOnSerialize]
-        public User User { get; set; }
+        public User? User { get; set; }
 
         /// <summary>
         ///     Available for GET requests (authenticated)
@@ -473,7 +473,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("user_uri")]
-        public Uri UserUri { get; set; }
+        public Uri? UserUri { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -481,7 +481,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("video_url")]
-        public string VideoUrl { get; set; }
+        public string? VideoUrl { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -489,7 +489,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("waveform_url")]
-        public string WaveformUrl { get; set; }
+        public string? WaveformUrl { get; set; }
 
         public void ValidateDelete()
         {

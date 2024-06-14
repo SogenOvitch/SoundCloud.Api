@@ -30,9 +30,9 @@ namespace SoundCloud.Api.Utils
                     continue;
                 }
 
-                if (!attributeValues.ContainsKey(attr.Value))
+                if (!attributeValues.ContainsKey(attr?.Value ?? string.Empty))
                 {
-                    attributeValues.Add(attr.Value, entry);
+                    attributeValues.Add(attr?.Value ?? string.Empty, entry);
                 }
             }
 

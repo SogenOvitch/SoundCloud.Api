@@ -4,7 +4,7 @@ namespace SoundCloud.Api.Utils
 {
     public class SoundCloudAuthInfo
     {
-        public SoundCloudAuthInfo(string accessToken, string clientId)
+        public SoundCloudAuthInfo(string? accessToken, string? clientId)
         {
             if (string.IsNullOrEmpty(accessToken) && string.IsNullOrEmpty(clientId))
             {
@@ -15,8 +15,8 @@ namespace SoundCloud.Api.Utils
             ClientId = clientId;
         }
 
-        public string AccessToken { get; }
+        public string? AccessToken { get; }
 
-        public string ClientId { get; }
+        public string? ClientId { get; }
     }
 }

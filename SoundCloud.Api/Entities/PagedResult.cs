@@ -23,7 +23,7 @@ namespace SoundCloud.Api.Entities
         ///     Available for GET requests
         /// </summary>
         [JsonProperty("future_href")]
-        public Uri FutureHref { get; set; }
+        public Uri? FutureHref { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -41,6 +41,6 @@ namespace SoundCloud.Api.Entities
         ///     Available for GET requests
         /// </summary>
         [JsonProperty("next_href")]
-        public Uri NextHref { get; set; }
+        public Uri? NextHref { get; set; }
     }
 }

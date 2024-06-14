@@ -20,7 +20,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
         public static IHttpClientBuilder AddSoundCloudHttpClient(this IServiceCollection serviceCollection, SoundCloudAuthInfo credentials)
         {
-            var version = typeof(SoundCloudClient).Assembly.GetName().Version.ToString();
+            var version = typeof(SoundCloudClient).Assembly.GetName().Version?.ToString();
             var userAgent = new ProductInfoHeaderValue("SoundCloud.Api", version);
 
             serviceCollection.TryAddSingleton(credentials);

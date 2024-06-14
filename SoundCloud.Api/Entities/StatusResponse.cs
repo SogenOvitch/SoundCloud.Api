@@ -16,7 +16,7 @@ namespace SoundCloud.Api.Entities
 
         [JsonIgnoreOnSerialize]
         [JsonProperty("error", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Error { get; set; }
+        public string? Error { get; set; }
 
         [JsonIgnoreOnSerialize]
         [JsonProperty("errors", DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -28,10 +28,10 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("location", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Location { get; set; }
+        public string? Location { get; set; }
 
         [JsonIgnoreOnSerialize]
         [JsonProperty("status", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Status { get; set; }
+        public string? Status { get; set; }
     }
 }

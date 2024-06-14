@@ -17,7 +17,7 @@ namespace SoundCloud.Api.Json
             return _underlyingValueProvider.GetValue(target) ?? false;
         }
 
-        public void SetValue(object target, object value)
+        public void SetValue(object target, object? value)
         {
             _underlyingValueProvider.SetValue(target, value ?? false);
         }

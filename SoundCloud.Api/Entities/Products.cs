@@ -14,6 +14,6 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonProperty("name")]
         [JsonIgnoreOnSerialize]
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }

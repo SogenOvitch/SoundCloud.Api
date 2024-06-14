@@ -19,28 +19,28 @@ namespace SoundCloud.Api.Entities
         ///     Available for GET requests
         /// </summary>
         [JsonProperty("access_token")]
-        public string AccessToken { get; set; }
+        public string? AccessToken { get; set; }
 
         /// <summary>
         ///     Available for POST requests
         ///     The client id belonging to your application
         /// </summary>
         [JsonProperty("client_id")]
-        public string ClientId { get; set; }
+        public string? ClientId { get; set; }
 
         /// <summary>
         ///     Available for POST requests
         ///     The client secret belonging to your application
         /// </summary>
         [JsonProperty("client_secret")]
-        public string ClientSecret { get; set; }
+        public string? ClientSecret { get; set; }
 
         /// <summary>
         ///     Available for POST requests
         ///     The authorization code obtained when user is sent to redirect_uri
         /// </summary>
         [JsonProperty("code")]
-        public string Code { get; set; }
+        public string? Code { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -56,20 +56,20 @@ namespace SoundCloud.Api.Entities
         ///     Available for POST requests
         /// </summary>
         [JsonProperty("password")]
-        public string Password { get; set; }
+        public string? Password { get; set; }
 
         /// <summary>
         ///     Available for POST requests
         ///     The redirect uri you have configured for your application
         /// </summary>
         [JsonProperty("redirect_uri")]
-        public string RedirectUri { get; set; }
+        public string? RedirectUri { get; set; }
 
         /// <summary>
         ///     Available for POST requests
         /// </summary>
         [JsonProperty("refresh_token")]
-        public string RefreshToken { get; set; }
+        public string? RefreshToken { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -81,7 +81,7 @@ namespace SoundCloud.Api.Entities
         ///     Available for POST requests
         /// </summary>
         [JsonProperty("username")]
-        public string Username { get; set; }
+        public string? Username { get; set; }
 
         public void ValidateAuthorizationCode()
         {
@@ -186,29 +186,29 @@ namespace SoundCloud.Api.Entities
         internal IDictionary<string, object> ToParameters(GrantType type)
         {
             var parameters = new Dictionary<string, object>();
-            parameters.Add("grant_type", type.GetAttributeOfType<EnumMemberAttribute>().Value);
+            parameters.Add("grant_type", type.GetAttributeOfType<EnumMemberAttribute>()?.Value ?? string.Empty);
 
             switch (type)
             {
                 case GrantType.RefreshToken:
-                    parameters.Add("client_id", ClientId);
-                    parameters.Add("client_secret", ClientSecret);
-                    parameters.Add("refresh_token", RefreshToken);
+                    parameters.Add("client_id", ClientId ?? string.Empty);
+                    parameters.Add("client_secret", ClientSecret ?? string.Empty);
+                    parameters.Add("refresh_token", RefreshToken ?? string.Empty);
                     break;
                 case GrantType.Password:
-                    parameters.Add("client_id", ClientId);
-                    parameters.Add("client_secret", ClientSecret);
-                    parameters.Add("username", Username);
-                    parameters.Add("password", Password);
+                    parameters.Add("client_id", ClientId ?? string.Empty);
+                    parameters.Add("client_secret", ClientSecret ?? string.Empty);
+                    parameters.Add("username", Username ?? string.Empty);
+                    parameters.Add("password", Password ?? string.Empty);
                     break;
                 case GrantType.ClientCredentials:
-                    parameters.Add("client_id", ClientId);
-                    parameters.Add("client_secret", ClientSecret);
+                    parameters.Add("client_id", ClientId ?? string.Empty);
+                    parameters.Add("client_secret", ClientSecret ?? string.Empty);
                     break;
                 case GrantType.AuthorizationCode:
-                    parameters.Add("client_id", ClientId);
-                    parameters.Add("client_secret", ClientSecret);
-                    parameters.Add("code", Code);
+                    parameters.Add("client_id", ClientId ?? string.Empty);
+                    parameters.Add("client_secret", ClientSecret ?? string.Empty);
+                    parameters.Add("code", Code ?? string.Empty);
                     break;
                 default:
                     return parameters;

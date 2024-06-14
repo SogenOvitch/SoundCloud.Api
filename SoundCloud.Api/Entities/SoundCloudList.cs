@@ -10,7 +10,7 @@ namespace SoundCloud.Api.Entities
     public class SoundCloudList<T> : IEnumerable<T> where T : Entity
     {
         private readonly IEnumerable<T> _collection;
-        private readonly Func<Task<SoundCloudList<T>>> _nextAction;
+        private readonly Func<Task<SoundCloudList<T>>>? _nextAction;
 
         public SoundCloudList(IEnumerable<T> collection, Func<Task<SoundCloudList<T>>> next)
         {

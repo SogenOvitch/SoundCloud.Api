@@ -115,7 +115,7 @@ namespace SoundCloud.Api.Web
                 var intParameter = entry.Value as int?;
                 if (intParameter != null)
                 {
-                    var stringContent = new StringContent(intParameter.ToString());
+                    var stringContent = new StringContent(intParameter?.ToString() ?? string.Empty);
                     stringContent.Headers.Remove("Content-Type");
                     multipartFormDataContent.Add(stringContent, entry.Key);
                 }
@@ -149,7 +149,14 @@ namespace SoundCloud.Api.Web
             }
 
             var responseContent = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<TResult>(responseContent, _jsonDeserializeSettings);
+            var deserializedObject = JsonConvert.DeserializeObject<TResult>(responseContent, _jsonDeserializeSettings);
+
+            if (deserializedObject == null)
+            {
+                throw new Exception();
+            }
+
+            return deserializedObject;
         }
     }
 }

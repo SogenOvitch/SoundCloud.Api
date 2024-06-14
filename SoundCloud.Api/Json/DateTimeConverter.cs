@@ -35,7 +35,7 @@ namespace SoundCloud.Api.Json
         /// <param name="existingValue">The existing value of object being read.</param>
         /// <param name="serializer">The calling serializer.</param>
         /// <returns>The object value.</returns>
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
             if (objectType != typeof(DateTime))
             {
@@ -48,7 +48,7 @@ namespace SoundCloud.Api.Json
             }
 
             DateTime parsedDateTime;
-            if (DateTime.TryParse(reader.Value.ToString(), out parsedDateTime))
+            if (DateTime.TryParse(reader.Value?.ToString(), out parsedDateTime))
             {
                 return parsedDateTime;
             }
@@ -62,15 +62,15 @@ namespace SoundCloud.Api.Json
         /// <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
         /// <param name="value">The value.</param>
         /// <param name="serializer">The calling serializer.</param>
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
-            if (!(value is DateTime))
+            if (!(value is DateTime) || value == null)
             {
                 writer.WriteNull();
             }
 
-            var dateTime = (DateTime) value;
-            writer.WriteValue(dateTime.ToString(Pattern));
+            var dateTime = (DateTime?) value;
+            writer.WriteValue(dateTime?.ToString(Pattern));
         }
     }
 }

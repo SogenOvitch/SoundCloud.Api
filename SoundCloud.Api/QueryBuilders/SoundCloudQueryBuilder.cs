@@ -84,10 +84,10 @@ namespace SoundCloud.Api.QueryBuilders
 
         protected static void ApplyList<T>(IDictionary<string, string> query, string key, IList<T> filters)
         {
-            ApplyList(query, key, filters, t => t.ToString());
+            ApplyList(query, key, filters, t => t?.ToString());
         }
 
-        protected static void ApplyList<T>(IDictionary<string, string> query, string key, IList<T> filters, Func<T, string> selector)
+        protected static void ApplyList<T>(IDictionary<string, string> query, string key, IList<T> filters, Func<T, string?> selector)
         {
             if (!filters.Any())
             {

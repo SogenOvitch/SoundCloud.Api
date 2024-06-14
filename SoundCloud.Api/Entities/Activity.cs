@@ -16,7 +16,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("created_at")]
-        public string CreatedAt { get; set; }
+        public string? CreatedAt { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -24,14 +24,14 @@ namespace SoundCloud.Api.Entities
         [JsonIgnoreOnSerialize]
         [JsonProperty("origin")]
         [JsonConverter(typeof(SoundCloudEntityJsonConverter))]
-        public Entity Origin { get; set; }
+        public Entity? Origin { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         /// </summary>
         [JsonProperty("tags")]
         [JsonIgnoreOnSerialize]
-        public object Tags { get; set; }
+        public object? Tags { get; set; }
 
         /// <summary>
         ///     Available for GET requests

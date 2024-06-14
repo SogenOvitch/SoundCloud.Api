@@ -42,9 +42,9 @@ namespace SoundCloud.Api.Json
         {
             var property = base.CreateProperty(member, memberSerialization);
 
-            var attributes = property.DeclaringType.GetProperty(property.UnderlyingName).GetCustomAttributes().ToList();
+            var attributes = property.DeclaringType?.GetProperty(property.UnderlyingName ?? string.Empty)?.GetCustomAttributes().ToList();
 
-            if (!attributes.Any())
+            if (attributes == null || !attributes.Any())
             {
                 return property;
             }

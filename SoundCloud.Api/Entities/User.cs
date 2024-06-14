@@ -27,42 +27,42 @@ namespace SoundCloud.Api.Entities
         ///     URL to a JPEG image
         /// </summary>
         [JsonProperty("avatar_url")]
-        public string AvatarUrl { get; set; }
+        public string? AvatarUrl { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         ///     city
         /// </summary>
         [JsonProperty("city")]
-        public string City { get; set; }
+        public string? City { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         ///     country
         /// </summary>
         [JsonProperty("country")]
-        public string Country { get; set; }
+        public string? Country { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         ///     description
         /// </summary>
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         ///     Discogs name
         /// </summary>
         [JsonProperty("discogs_name")]
-        public string DiscogsName { get; set; }
+        public string? DiscogsName { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         ///     first name
         /// </summary>
         [JsonProperty("first_name")]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -83,27 +83,27 @@ namespace SoundCloud.Api.Entities
         ///     first and last name
         /// </summary>
         [JsonProperty("full_name")]
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         /// </summary>
         [JsonProperty("last_modified")]
-        public string LastModified { get; set; }
+        public string? LastModified { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         ///     last name
         /// </summary>
         [JsonProperty("last_name")]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         ///     MySpace name
         /// </summary>
         [JsonProperty("myspace_name")]
-        public string MyspaceName { get; set; }
+        public string? MyspaceName { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -117,20 +117,20 @@ namespace SoundCloud.Api.Entities
         ///     permalink of the resource
         /// </summary>
         [JsonProperty("permalink")]
-        public string Permalink { get; set; }
+        public string? Permalink { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         ///     URL to the SoundCloud.com page
         /// </summary>
         [JsonProperty("permalink_url")]
-        public string PermalinkUrl { get; set; }
+        public string? PermalinkUrl { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         /// </summary>
         [JsonProperty("plan")]
-        public string Plan { get; set; }
+        public string? Plan { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -181,28 +181,28 @@ namespace SoundCloud.Api.Entities
         ///     Available for GET requests
         /// </summary>
         [JsonProperty("uri")]
-        public Uri Uri { get; set; }
+        public Uri? Uri { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         ///     username
         /// </summary>
         [JsonProperty("username")]
-        public string Username { get; set; }
+        public string? Username { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         ///     a URL to the website
         /// </summary>
         [JsonProperty("website")]
-        public string Website { get; set; }
+        public string? Website { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         ///     a custom title for the website
         /// </summary>
         [JsonProperty("website_title")]
-        public string WebsiteTitle { get; set; }
+        public string? WebsiteTitle { get; set; }
 
         public void ValidateFollowUnfollow()
         {

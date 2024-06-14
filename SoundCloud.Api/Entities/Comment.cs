@@ -16,7 +16,7 @@ namespace SoundCloud.Api.Entities
         ///     Available for GET, PUT, POST requests
         /// </summary>
         [JsonProperty("body")]
-        public string Body { get; set; }
+        public string? Body { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -43,14 +43,14 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonProperty("uri")]
         [JsonIgnoreOnSerialize]
-        public Uri Uri { get; set; }
+        public Uri? Uri { get; set; }
 
         /// <summary>
         ///     Available for GET requests
         /// </summary>
         [JsonProperty("user")]
         [JsonIgnoreOnSerialize]
-        public User User { get; set; }
+        public User? User { get; set; }
 
         /// <summary>
         ///     Available for GET requests

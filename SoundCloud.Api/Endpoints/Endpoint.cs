@@ -18,7 +18,7 @@ namespace SoundCloud.Api.Endpoints
         protected async Task<SoundCloudList<T>> GetPage<T>(Uri href) where T : Entity
         {
             var page = await Gateway.SendGetRequestAsync<PagedResult<T>>(href);
-            if (page.HasNextPage)
+            if (page.HasNextPage && page.NextHref != null)
             {
                 return new SoundCloudList<T>(page.Collection, () => GetPage<T>(page.NextHref));
             }

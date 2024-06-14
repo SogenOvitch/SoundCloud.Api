@@ -61,7 +61,7 @@ namespace SoundCloud.Api.Json
         /// <returns>
         ///     The object value.
         /// </returns>
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
             if (objectType != typeof(List<string>))
             {
@@ -73,10 +73,10 @@ namespace SoundCloud.Api.Json
                 throw new JsonSerializationException("Cannot convert non Strings to List<string>");
             }
 
-            var values = reader.Value.ToString();
+            var values = reader.Value?.ToString();
 
             var regex = new Regex(string.Format("[^{0}{1}]+|{1}([^\\{1}]*){1}", Separator, EscapeChar));
-            var matches = regex.Matches(values);
+            var matches = regex.Matches(values ?? string.Empty);
             var matchList = new List<string>();
             foreach (Match match in matches)
             {
@@ -100,7 +100,7 @@ namespace SoundCloud.Api.Json
         /// <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
         /// <param name="value">The value.</param>
         /// <param name="serializer">The calling serializer.</param>
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
             if (!(value is IEnumerable<string>))
             {

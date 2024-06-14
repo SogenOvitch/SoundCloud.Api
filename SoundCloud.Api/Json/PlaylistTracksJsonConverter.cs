@@ -29,7 +29,7 @@ namespace SoundCloud.Api.Json
         /// <returns>
         ///     The object value.
         /// </returns>
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
             return serializer.Deserialize(reader, objectType);
         }
@@ -40,9 +40,9 @@ namespace SoundCloud.Api.Json
         /// <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
         /// <param name="value">The value.</param>
         /// <param name="serializer">The calling serializer.</param>
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
-            if (!(value is IEnumerable<Track>))
+            if (!(value is IEnumerable<Track>) || value == null)
             {
                 throw new ArgumentException("Value is no list of tracks", "value");
             }

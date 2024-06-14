@@ -65,8 +65,8 @@ namespace SoundCloud.Api.QueryBuilders
             ApplyNullablePrimitiveType(queryArguments, "duration[from]", DurationFrom, s => s.ToString());
             ApplyNullablePrimitiveType(queryArguments, "duration[to]", DurationTo, s => s.ToString());
 
-            ApplyNullableEnumType(queryArguments, "license", License, License.None, s => s.GetAttributeOfType<EnumMemberAttribute>().Value);
-            ApplyNullableEnumType(queryArguments, "filter", Sharing, Sharing.None, s => s.GetAttributeOfType<EnumMemberAttribute>().Value);
+            ApplyNullableEnumType(queryArguments, "license", License, License.None, s => s.GetAttributeOfType<EnumMemberAttribute>().Value ?? string.Empty);
+            ApplyNullableEnumType(queryArguments, "filter", Sharing, Sharing.None, s => s.GetAttributeOfType<EnumMemberAttribute>().Value ?? string.Empty);
 
             ApplyNullableDateTimeType(queryArguments, "created_at[from]", CreatedAtFrom, s => s.ToString(Settings.SoundCloudDateTimeQueryPattern));
             ApplyNullableDateTimeType(queryArguments, "created_at[to]", CreatedAtTo, s => s.ToString(Settings.SoundCloudDateTimeQueryPattern));
