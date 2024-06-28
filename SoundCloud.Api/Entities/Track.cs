@@ -106,7 +106,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("download_count")]
-        public int DownloadCount { get; set; }
+        public int? DownloadCount { get; set; }
 
         /// <summary>
         ///     Available for GET, PUT, POST requests
@@ -152,7 +152,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("favoritings_count")]
-        public int FavoritingsCount { get; set; }
+        public int? FavoritingsCount { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -244,7 +244,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("likes_count")]
-        public int LikesCount { get; set; }
+        public int? LikesCount { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -291,7 +291,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("playback_count")]
-        public int PlaybackCount { get; set; }
+        public int? PlaybackCount { get; set; }
 
         /// <summary>
         ///     Available for GET requests
@@ -349,7 +349,7 @@ namespace SoundCloud.Api.Entities
         /// </summary>
         [JsonIgnoreOnSerialize]
         [JsonProperty("reposts_count")]
-        public int RepostsCount { get; set; }
+        public int? RepostsCount { get; set; }
 
         /// <summary>
         ///     Available for GET requests

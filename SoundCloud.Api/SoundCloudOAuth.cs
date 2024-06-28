@@ -1,6 +1,4 @@
-using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SoundCloud.Api.Entities;
 using SoundCloud.Api.Exceptions;
@@ -15,10 +13,11 @@ namespace SoundCloud.Api
         {
             using (var httpClient = new HttpClient())
             {
-                var formData = new MultipartFormDataContent();
-                formData.Add(CreateStringContent("client_credentials"), "\"grant_type\"");
-                formData.Add(CreateStringContent(clientId), "\"client_id\"");
-                formData.Add(CreateStringContent(clientSecret), "\"client_secret\"");
+                var formData = new FormUrlEncodedContent(new Dictionary<string, string> {
+                        { "grant_type", "client_credentials" },
+                        { "client_id", clientId },
+                        { "client_secret", clientSecret },
+                    });
 
                 var message = new HttpRequestMessage(HttpMethod.Post, "https://api.soundcloud.com/oauth2/token");
                 message.Headers.UserAgent.Add(new ProductInfoHeaderValue("SoundCloud.Api", Version));
