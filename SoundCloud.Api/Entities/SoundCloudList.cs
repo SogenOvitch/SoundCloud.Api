@@ -1,8 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using SoundCloud.Api.Entities.Base;
 
 namespace SoundCloud.Api.Entities
@@ -34,6 +30,11 @@ namespace SoundCloud.Api.Entities
         IEnumerator IEnumerable.GetEnumerator()
         {
             return _collection.GetEnumerator();
+        }
+
+        public Func<Task<SoundCloudList<T>>>? GetNextAction()
+        {
+            return _nextAction;
         }
 
         public async Task<SoundCloudList<T>> GetNextPageAsync()
