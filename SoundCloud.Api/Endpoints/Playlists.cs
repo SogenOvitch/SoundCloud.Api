@@ -11,6 +11,7 @@ namespace SoundCloud.Api.Endpoints
     {
         private const string PlaylistArtworkDataKey = "playlist[artwork_data]";
         private const string PlaylistPath = "playlists/{0}?";
+        private const string PlaylistTracksPath = "playlists/{0}/tracks?";
         private const string PlaylistSecretTokenPath = "playlists/{0}/secret-token?";
         private const string PlaylistsPath = "playlists?";
 
@@ -51,6 +52,13 @@ namespace SoundCloud.Api.Endpoints
 
             var builder = new PlaylistQueryBuilder { Path = string.Format(PlaylistSecretTokenPath, playlist.Id) };
             return await Gateway.SendGetRequestAsync<SecretToken>(builder.BuildUri());
+        }
+
+        public Task<SoundCloudList<Track>> GetTracksAsync(string playlistId)
+        {
+            var builder = new PlaylistQueryBuilder { Path = string.Format(PlaylistTracksPath, playlistId) };
+            builder.Paged = true;
+            return GetPage<Track>(builder.BuildUri());
         }
 
         public async Task<Playlist> PostAsync(Playlist playlist)

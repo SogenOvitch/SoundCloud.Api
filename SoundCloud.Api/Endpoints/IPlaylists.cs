@@ -34,6 +34,11 @@ namespace SoundCloud.Api.Endpoints
         Task<SecretToken> GetSecretTokenAsync(Playlist playlist);
 
         /// <summary>
+        ///     Gets the tracks of the playlist
+        /// </summary>
+        Task<SoundCloudList<Track>> GetTracksAsync(string playlistId);
+
+        /// <summary>
         ///     Posts the playlist
         /// </summary>
         /// <exception cref="SoundCloudValidationException">Thrown if validation of <paramref name="playlist" /> failed.</exception>
