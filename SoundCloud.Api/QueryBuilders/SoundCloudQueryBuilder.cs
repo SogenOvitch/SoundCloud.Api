@@ -149,7 +149,7 @@ namespace SoundCloud.Api.QueryBuilders
 
             if (Paged)
             {
-                uriString += "&linked_partitioning=1";
+                uriString += "&linked_partitioning=true";
             }
 
             return new Uri(uriString);
