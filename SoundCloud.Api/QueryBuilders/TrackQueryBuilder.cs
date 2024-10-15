@@ -11,6 +11,7 @@ namespace SoundCloud.Api.QueryBuilders
         public TrackQueryBuilder()
         {
             SearchString = string.Empty;
+            Access = string.Empty;
             Sharing = Sharing.None;
             License = License.None;
             BpmFrom = null;
@@ -45,6 +46,8 @@ namespace SoundCloud.Api.QueryBuilders
 
         public string SearchString { get; set; }
 
+        public string Access { get; set; }
+
         public Sharing Sharing { get; set; }
 
         public List<string> Tags { get; }
@@ -58,6 +61,11 @@ namespace SoundCloud.Api.QueryBuilders
             if (!string.IsNullOrEmpty(SearchString))
             {
                 ApplyPrimitiveType(queryArguments, "q", SearchString);
+            }
+
+            if (!string.IsNullOrEmpty(Access))
+            {
+                ApplyPrimitiveType(queryArguments, "access", Access);
             }
 
             ApplyNullablePrimitiveType(queryArguments, "bpm[from]", BpmFrom, s => s.ToString());
