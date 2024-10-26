@@ -32,6 +32,9 @@ namespace SoundCloud.Api.Entities.Enums
         CcByNcNd,
 
         [EnumMember(Value = "cc-by-nc-sa")]
-        CcByNcSa
+        CcByNcSa,
+
+        [EnumMember(Value = "cc-")]
+        Cc
     }
 }
