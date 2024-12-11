@@ -27,7 +27,7 @@ namespace SoundCloud.Api
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new SoundCloudApiException(response.StatusCode, response.Content);
+                    throw new SoundCloudApiException(response.StatusCode, response.Content, response.ReasonPhrase);
                 }
 
                 var responseContent = await response.Content.ReadAsStringAsync();
@@ -61,7 +61,7 @@ namespace SoundCloud.Api
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new SoundCloudApiException(response.StatusCode, response.Content);
+                    throw new SoundCloudApiException(response.StatusCode, response.Content, response.ReasonPhrase);
                 }
 
                 var responseContent = await response.Content.ReadAsStringAsync();
@@ -94,7 +94,7 @@ namespace SoundCloud.Api
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new SoundCloudApiException(response.StatusCode, response.Content);
+                    throw new SoundCloudApiException(response.StatusCode, response.Content, response.ReasonPhrase);
                 }
 
                 var responseContent = await response.Content.ReadAsStringAsync();

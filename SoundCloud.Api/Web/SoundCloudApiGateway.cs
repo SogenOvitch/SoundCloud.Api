@@ -145,7 +145,7 @@ namespace SoundCloud.Api.Web
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new SoundCloudApiException(response.StatusCode, response.Content);
+                throw new SoundCloudApiException(response.StatusCode, response.Content, response.ReasonPhrase);
             }
 
             var responseContent = await response.Content.ReadAsStringAsync();

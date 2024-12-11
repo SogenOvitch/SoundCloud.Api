@@ -6,7 +6,7 @@ namespace SoundCloud.Api.Exceptions
 {
     public class SoundCloudApiException : Exception
     {
-        internal SoundCloudApiException(HttpStatusCode httpStatusCode, HttpContent httpContent)
+        internal SoundCloudApiException(HttpStatusCode httpStatusCode, HttpContent httpContent, string? message = null) : base(message)
         {
             HttpStatusCode = httpStatusCode;
             HttpContent = httpContent;
